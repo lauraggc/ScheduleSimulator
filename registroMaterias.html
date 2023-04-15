@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resgistro de materias</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        #logoNav {
+            width: 125px;
+            height: auto;
+        }
+
+        .navbar {
+            border-bottom: 3px solid #aaaa;
+        }
+
+        .button-2 {
+            width: 153px;
+            height: 32px;
+            padding: 0px 10px 0px 10px;
+            background: #ebebeb;
+            color: #232323;
+            border-color: #232323;
+            border-width: 1px;
+            border-style: solid;
+            border-radius: 3px 3px 3px 3px;
+            font-family: "Helvetica";
+            font-weight: 400;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        #btn-add {
+            padding-left: 70%;
+        }
+
+        #btn-isd {
+            padding-left: 60%;
+
+        }
+
+        .scroller {
+            width: 200px;
+            height: 100px;
+            overflow-y: scroll;
+            scrollbar-color: rgb(46, 45, 45) rgb(190, 192, 190);
+            scrollbar-width: thick;
+            height: 400px;
+        }
+
+        #button_crear {
+            background: #0844a4;
+            color: #ffffff;
+            border-color: #29323d;
+            font-family: "Open Sans";
+            font-weight: 600;
+
+        }
+
+        #social {
+            color: #0844a4;
+        }
+        #info-header{
+            padding-left: 3%;
+        }
+        #info-text{
+            padding-left: 5%;
+            font-size: x-large;
+        }
+    </style>
+</head>
+
+<body>
+    <!--NAVBAR-->
+    <nav class="navbar sticky-top navbar-expand navbar-light bg-light">
+        <a class="navbar-brand nav-item nav-link active" href="#"><img src="./images/logoBig.png" alt="SimHor"
+                id="logoNav" class=""></a>
+
+        <div class="flex-grow-1">
+            <!--
+                <form class="form-inline">
+                <input class="form-control col-sm-9 col-lg-10" type="search"
+                    placeholder="Encuentra de todo empieza a buscar" aria-label="Search">
+                <button class="btn btn-outline-light col-sm-3 col-lg-2" type="submit">Buscar</button>
+            </form>
+            -->
+
+        </div>
+
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item ">
+                    <a class="nav-item nav-link  mr-2" href="./index.html">
+                        Home
+                    </a>
+
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-item nav-link  mr-2" href="./horario.html">
+                        Simulador
+                    </a>
+
+                </li>
+                <!--
+                <li class="nav-item ">
+                    <a class="nav-item nav-link  mr-2" href="#">
+                        Contacto
+                    </a>
+
+                </li>-->
+                
+                <li class="nav-item ">
+                    <a class="nav-item nav-link  mr-2" href="./registroMaterias.html">
+                        Asignaturas
+                    </a>
+
+                </li>
+                <!--<li class="nav-item ">
+                    <a class="nav-item nav-link  mr-2" href="./adminMaterias.html">
+                        Alta de asignaturas
+                    </a>
+
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-item nav-link  mr-2" href="./adminUsuarios.html">
+                        Alta de usuarios
+                    </a>
+
+                </li>-->
+                <li class="nav-item dropdown">
+                    <a class="nav-item nav-link dropdown-toggle mr-2 btn btn-primary " href="#" data-toggle="dropdown"
+                        id="button_crear">
+                        Mi Cuenta
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#ingresar">Ingresar</a>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#registro">Registro</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="./perfil.html">Mi Perfil</a>
+                    </div>
+                </li>
+                <!--
+                <li class="nav-item">
+                    <a class="nav-link" onclick="updateCartProducts()">
+                        <i class="fas fa-user"></i>
+                        <span class="badge badge-dark" id="cartItemsbadge">0</span>
+                    </a>
+                </li> --->
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Modal Ingresar -->
+    <div class="modal fade" id="ingresar" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Ingresar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="form-group ">
+                            <label for="correo">Correo</label>
+                            <div class="input-group ">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <i class="fa fa-user "></i></span>
+                                </div>
+                                <input type="email" class="col-10 form-control " name="correo" id="correo"
+                                    aria-describedby="helpId" placeholder="Ingresa tu correo" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <i class="fa fa-key"></i></span>
+                                </div>
+                                <input type="password" class="col-10 form-control" name="" id=""
+                                    aria-describedby="helpId" placeholder="Ingresa tu contraseña" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="container-fluid">
+                        <div class="form-group">
+                            <div class="d-flex justify-content-center ">
+                                <button type="button" data-dismiss="modal" aria-label="Close"
+                                    class="btn btn-success w-100" id="loginHome">Login</button>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <div style="border-top: 1px solid #888; padding-top:15px; font-size:85%">
+                                No tienes cuenta!
+                                <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#registro">Registrate
+                                    Aqui! </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Registro-->
+    <div class="modal fade" id="registro" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <form action="">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Registrar usuario</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+
+                                    <input type="text" class="form-control" name="nombreRegistro" id="nombreRegistro"
+                                        aria-describedby="helpId" placeholder="Nombre(s)" required>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="apellidosRegistro"
+                                        id="apellidosRegistro" aria-describedby="helpId" placeholder="Apellidos"
+                                        required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="email" name="emailRegistro" id="emailRegistro" class="form-control "
+                            placeholder="Tu correo" aria-describedby="helpId" required>
+
+                        <!-- Contraseña debe tener al menos un numero, una mayuscula y una minuscula ademas de 8 caracteres -->
+                        <input type="password" name="pass1Registro" id="pass1Registro" class="form-control mt-3"
+                            placeholder="Contraseña" aria-describedby="helpId"
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+
+                        <input type="password" name="pass2Registro" id="pass2Registro" class="form-control mt-3"
+                            placeholder="Confirmar contraseña" aria-describedby="helpId"
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+
+                        <div class="row mt-4">
+                            <p class="col-4">Escoge tu carrera:</p>
+
+                            <div class="col-11 ml-auto">
+                                <div class="row">
+
+                                    <input type="radio" name="carrera1" id="carrera1" checked>
+                                    <label for="carrera1" class="col-1"> ISC</label>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <div class="container-fluid">
+                            <div class="d-flex justify-content-center ">
+                                <button type="submit" class="btn btn-success w-100 mb-2 mt-3">Registrarse</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <br><br><br>
+    <table width="1200" align="center">
+        <tr>
+            <td width="140">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active"><strong>    Asignaturas </strong></a>
+                    </li>
+                    
+                </ul>
+            </td>
+            <td width="125">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link disabled"><strong>    Información   </strong></a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td rowspan="6">
+
+            </td>
+        </tr>
+
+    </table>
+    <table width="1200" align="center" border="1">
+
+        <tr>
+            <td width="125">
+                <div class="scroller" id="courseContainer">
+
+                </div>
+
+            </td>
+            <td>
+                <div id="courseEachContainer">
+
+                </div>
+
+            </td>
+        </tr>
+
+    </table>
+    <br><br><br>
+    <!--FOOTER-->
+    <section id="footer">
+        <div class="container">
+
+            <div class="row py-4 d-flex justify-content-center">
+                <div class="col-sm-4 justify-content-center">
+                    <a href="https://facebook.com" id="social"><i class="fab fa-2x fa-facebook"></i></a>
+                    <a href="https://instagram.com" id="social"><i class="fab fa-2x fa-instagram"></i></a>
+                    <a href="https://twitter.com" id="social"><i class="fab fa-2x fa-twitter-square"></i></a>
+
+                </div>
+                <div class="col-sm-4 justify-content-center">
+                    <p class="text-black"><a href="./index.html"><img src="./images/logoBig.png" alt="" id="logoNav"></a>
+                    </p>
+                </div>
+                <div class="col-sm-4 justify-content-center">
+                    <p class="text-black">© Copyright 2022 - ITESO</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="./B-end/clases.js"></script>
+    <script src="./B-end/horario.js"></script>
+    <script src="./B-end/ajax_handler.js"></script>
+    <script src="./B-end/courses_utils.js"></script>
+    <!--
+    <script src="/SimuladorHorario/Server/app/controllers/ajax_handler.js"></script>
+    <script src="/SimuladorHorario/Server/app/controllers/data_handler.js"></script>
+    -->
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
